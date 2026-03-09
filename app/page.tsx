@@ -106,8 +106,8 @@ const CHAINS = [
   { name: "Polygon", logo: "/logos/polygon.png" },
   { name: "Base", logo: "/logos/base.png" },
   { name: "BNB Chain", logo: "/logos/bnb.png" },
-  { name: "HashKey Chain", logo: null, color: "bg-blue-600/20 text-blue-300" },
-  { name: "Arc", logo: null, color: "bg-purple-600/20 text-purple-300" },
+  { name: "HashKey Chain", logo: "/logos/hashkey.png" },
+  { name: "Arc", logo: "/logos/arc.svg" },
   { name: "Solana", logo: "/logos/solana.png" },
   { name: "Lightning", logo: "/logos/lightning.png" },
 ];
@@ -404,24 +404,21 @@ export default function Home() {
               Supported Chains
             </h3>
             <div className="flex flex-wrap justify-center gap-3">
-              {CHAINS.map((chain) =>
-                chain.logo ? (
-                  <span
-                    key={chain.name}
-                    className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-white/70 hover:bg-white/10 transition"
-                  >
-                    <Image src={chain.logo} alt={chain.name} width={20} height={20} className="rounded-full" />
-                    {chain.name}
-                  </span>
-                ) : (
-                  <span
-                    key={chain.name}
-                    className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium border border-white/10 ${chain.color}`}
-                  >
-                    {chain.name}
-                  </span>
-                )
-              )}
+              {CHAINS.map((chain) => (
+                <span
+                  key={chain.name}
+                  className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-white/70 hover:bg-white/10 transition"
+                >
+                  {chain.logo && (
+                    chain.name === "HashKey Chain" ? (
+                      <Image src={chain.logo} alt={chain.name} width={60} height={16} className="object-contain" />
+                    ) : (
+                      <Image src={chain.logo} alt={chain.name} width={20} height={20} className="rounded-full object-contain" />
+                    )
+                  )}
+                  {chain.name !== "HashKey Chain" && chain.name}
+                </span>
+              ))}
             </div>
           </div>
 
