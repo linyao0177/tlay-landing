@@ -103,19 +103,19 @@ const USE_CASES = [
 ];
 
 const CHAINS = [
-  "Polygon",
-  "Base",
-  "BNB Chain",
-  "HashKey Chain",
-  "Arc",
-  "Solana",
-  "Lightning",
+  { name: "Polygon", logo: "/logos/polygon.png" },
+  { name: "Base", logo: "/logos/base.png" },
+  { name: "BNB Chain", logo: "/logos/bnb.png" },
+  { name: "HashKey Chain", logo: null, color: "bg-blue-600/20 text-blue-300" },
+  { name: "Arc", logo: null, color: "bg-purple-600/20 text-purple-300" },
+  { name: "Solana", logo: "/logos/solana.png" },
+  { name: "Lightning", logo: "/logos/lightning.png" },
 ];
 
 const CURRENCIES = [
-  { name: "USDC", color: "bg-blue-500/20 text-blue-300" },
-  { name: "USDT", color: "bg-green-500/20 text-green-300" },
-  { name: "BTC", color: "bg-amber-500/20 text-amber-300" },
+  { name: "USDC", logo: "/logos/usdc.png" },
+  { name: "USDT", logo: "/logos/usdt.png" },
+  { name: "BTC", logo: "/logos/bitcoin.png" },
 ];
 
 const STEPS = [
@@ -404,18 +404,28 @@ export default function Home() {
               Supported Chains
             </h3>
             <div className="flex flex-wrap justify-center gap-3">
-              {CHAINS.map((chain) => (
-                <span
-                  key={chain}
-                  className="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-white/60"
-                >
-                  {chain}
-                </span>
-              ))}
+              {CHAINS.map((chain) =>
+                chain.logo ? (
+                  <span
+                    key={chain.name}
+                    className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-white/70 hover:bg-white/10 transition"
+                  >
+                    <Image src={chain.logo} alt={chain.name} width={20} height={20} className="rounded-full" />
+                    {chain.name}
+                  </span>
+                ) : (
+                  <span
+                    key={chain.name}
+                    className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium border border-white/10 ${chain.color}`}
+                  >
+                    {chain.name}
+                  </span>
+                )
+              )}
             </div>
           </div>
 
-          {/* Supported Currencies */}
+          {/* Payment Currencies */}
           <div>
             <h3 className="text-sm text-white/30 uppercase tracking-wider text-center mb-6">
               Payment Currencies
@@ -424,8 +434,9 @@ export default function Home() {
               {CURRENCIES.map((c) => (
                 <span
                   key={c.name}
-                  className={`px-4 py-2 rounded-full text-sm font-medium ${c.color}`}
+                  className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/5 border border-white/10 text-sm font-medium text-white/70 hover:bg-white/10 transition"
                 >
+                  <Image src={c.logo} alt={c.name} width={22} height={22} className="rounded-full" />
                   {c.name}
                 </span>
               ))}
