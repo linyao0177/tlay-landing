@@ -164,7 +164,7 @@ export default function Home() {
               </a>
             ))}
             <a
-              href="https://github.com/aitos-io/BoAT-X-Framework"
+              href="https://github.com/boat-x"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm px-4 py-1.5 rounded-full bg-white/10 hover:bg-white/15 transition"
@@ -209,7 +209,7 @@ export default function Home() {
               Learn More <ArrowRight className="w-4 h-4" />
             </a>
             <a
-              href="https://github.com/aitos-io/BoAT-X-Framework"
+              href="https://github.com/boat-x"
               target="_blank"
               rel="noopener noreferrer"
               className="px-8 py-3 rounded-full border border-white/20 text-sm hover:bg-white/5 transition flex items-center gap-2"
@@ -446,11 +446,11 @@ export default function Home() {
             the blockchain layer so you can focus on your application.
           </p>
           <div className="inline-block rounded-xl bg-white/5 border border-white/10 px-6 py-4 font-mono text-sm text-white/70 mb-8">
-            git clone https://github.com/aitos-io/BoAT-X-Framework.git
+            git clone https://github.com/boat-x.git
           </div>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
-              href="https://github.com/aitos-io/BoAT-X-Framework"
+              href="https://github.com/boat-x"
               target="_blank"
               rel="noopener noreferrer"
               className="px-8 py-3 rounded-full bg-white text-black font-medium text-sm hover:bg-white/90 transition flex items-center gap-2"
