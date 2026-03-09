@@ -109,7 +109,7 @@ const CHAINS = [
   { name: "HashKey Chain", logo: "/logos/hashkey.png" },
   { name: "Arc", logo: "/logos/arc.svg" },
   { name: "Solana", logo: "/logos/solana.png" },
-  { name: "Lightning", logo: "/logos/lightning.png" },
+  { name: "Lightning", logo: "/logos/lightning.svg" },
 ];
 
 const CURRENCIES = [
