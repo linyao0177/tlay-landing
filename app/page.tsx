@@ -15,11 +15,14 @@ import {
   Truck,
   BrainCircuit,
 } from "lucide-react";
+import FadeIn from "./components/FadeIn";
+import Marquee from "./components/Marquee";
 
 const NAV_ITEMS = [
   { label: "Features", href: "#features" },
   { label: "Architecture", href: "#architecture" },
   { label: "Use Cases", href: "#usecases" },
+  { label: "Partners", href: "#partners" },
   { label: "Ecosystem", href: "#ecosystem" },
 ];
 
@@ -118,6 +121,27 @@ const CURRENCIES = [
   { name: "BTC", logo: "/logos/bitcoin.png" },
 ];
 
+const PARTNERS = [
+  { name: "Telefonica", logo: "/logos/partners/telefonica.svg", url: "https://www.telefonica.com" },
+  { name: "Vodafone", logo: "/logos/partners/vodafone.svg", url: "https://www.vodafone.com" },
+  { name: "ARM", logo: "/logos/partners/arm.svg", url: "https://www.arm.com" },
+  { name: "RISC-V", logo: "/logos/partners/riscv.svg", url: "https://riscv.org" },
+  { name: "Daimler", logo: "/logos/partners/daimler.svg", url: "https://www.mercedes-benz.com" },
+  { name: "Unisoc", logo: "/logos/partners/unisoc.svg", url: "https://www.unisoc.com" },
+  { name: "Fibocom", logo: "/logos/partners/fibocom.svg", url: "https://www.fibocom.com/en/index.html" },
+  { name: "XinYi Semi", logo: "/logos/partners/xinyisemi.svg", url: "https://www.xinyisemi.com" },
+  { name: "Ingeek", logo: "/logos/partners/ingeek.svg", url: "https://www.ingeek.com" },
+  { name: "Urovo", logo: "/logos/partners/urovo.svg", url: "https://www.urovo.com" },
+  { name: "NCS", logo: "/logos/partners/ncs.png", url: "https://www.ncs.co/en-sg/" },
+  { name: "Microsoft", logo: "/logos/partners/microsoft.svg", url: "https://www.microsoft.com" },
+  { name: "T-Mobile", logo: "/logos/partners/tmobile.svg", url: "https://www.t-mobile.com" },
+  { name: "NXP", logo: "/logos/partners/nxp.svg", url: "https://www.nxp.com" },
+  { name: "Infineon", logo: "/logos/partners/infineon.svg", url: "https://www.infineon.com" },
+  { name: "STMicroelectronics", logo: "/logos/partners/stmicroelectronics.svg", url: "https://www.st.com" },
+  { name: "StarFive", logo: "/logos/partners/starfive.svg", url: "https://www.starfivetech.com" },
+  { name: "Lenovo", logo: "/logos/partners/lenovo.svg", url: "https://www.lenovo.com" },
+];
+
 const STEPS = [
   {
     step: "01",
@@ -127,7 +151,7 @@ const STEPS = [
   {
     step: "02",
     title: "Attest",
-    desc: "Sensor data is SHA-256 hashed, Ed25519 signed, and submitted to HashAnchor for on-chain anchoring with Merkle proof.",
+    desc: "Sensor data is SHA-256 hashed, Ed25519 signed, and submitted to IoT Oracle service HashAnchor for on-chain anchoring with Merkle proof.",
   },
   {
     step: "03",
@@ -176,12 +200,13 @@ export default function Home() {
       </nav>
 
       {/* Hero */}
-      <section className="pt-32 pb-20 px-6">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs text-white/60 mb-8">
+      <section className="pt-32 pb-20 px-6 relative overflow-hidden">
+        <div className="hero-glow absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+        <div className="max-w-4xl mx-auto text-center relative z-10">
+          <div className="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs text-white/60 mb-8 fade-in-up">
             Trust Layer for the Trillion Machine Economy
           </div>
-          <div className="flex justify-center mb-6">
+          <div className="flex justify-center mb-6 fade-in-up delay-100">
             <Image
               src="/tlay-logo.svg"
               alt="TLAY"
@@ -190,18 +215,18 @@ export default function Home() {
               priority
             />
           </div>
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight leading-[1.1] mb-6">
+          <h1 className="text-5xl md:text-7xl font-bold tracking-tight leading-[1.1] mb-6 fade-in-up delay-200">
             <span className="gradient-text">Trust Layer for</span>
             <br />
             <span className="text-white/90">Machine Economy</span>
           </h1>
-          <p className="text-lg md:text-xl text-white/50 max-w-2xl mx-auto mb-10 leading-relaxed">
+          <p className="text-lg md:text-xl text-white/50 max-w-2xl mx-auto mb-10 leading-relaxed fade-in-up delay-300">
             Lightweight machine wallet runtime{" "}
             <span className="text-white/80 font-medium">BoAT</span> gives every
             IoT device its own identity, attestation, and payment capabilities
             — in under 100KB.
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 fade-in-up delay-400">
             <a
               href="#architecture"
               className="px-8 py-3 rounded-full bg-white text-black font-medium text-sm hover:bg-white/90 transition flex items-center gap-2"
@@ -236,7 +261,7 @@ export default function Home() {
 
       {/* Problem */}
       <section className="py-24 px-6">
-        <div className="max-w-3xl mx-auto text-center">
+        <FadeIn className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             Machines Generate Value.
             <br />
@@ -248,27 +273,28 @@ export default function Home() {
             autonomously. BoAT transforms every device into a trusted economic
             participant in the decentralized machine economy.
           </p>
-        </div>
+        </FadeIn>
       </section>
 
       {/* Features */}
       <section id="features" className="py-24 px-6">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-16">
-            Core Capabilities
-          </h2>
+          <FadeIn>
+            <h2 className="text-3xl font-bold text-center mb-16">
+              Core Capabilities
+            </h2>
+          </FadeIn>
           <div className="grid md:grid-cols-3 gap-6">
-            {FEATURES.map((f) => (
-              <div
-                key={f.title}
-                className="glow-box rounded-2xl border border-white/8 p-8 hover:border-white/15 transition"
-              >
-                <f.icon className="w-10 h-10 text-blue-400 mb-5" />
-                <h3 className="text-xl font-semibold mb-3">{f.title}</h3>
-                <p className="text-white/40 text-sm leading-relaxed">
-                  {f.desc}
-                </p>
-              </div>
+            {FEATURES.map((f, i) => (
+              <FadeIn key={f.title} delay={i * 0.15}>
+                <div className="glow-box rounded-2xl border border-white/8 p-8 hover:border-white/15 transition h-full">
+                  <f.icon className="w-10 h-10 text-blue-400 mb-5" />
+                  <h3 className="text-xl font-semibold mb-3">{f.title}</h3>
+                  <p className="text-white/40 text-sm leading-relaxed">
+                    {f.desc}
+                  </p>
+                </div>
+              </FadeIn>
             ))}
           </div>
         </div>
@@ -277,38 +303,39 @@ export default function Home() {
       {/* Architecture */}
       <section id="architecture" className="py-24 px-6">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-4">
-            4-Tier Modular Architecture
-          </h2>
-          <p className="text-center text-white/40 mb-16 max-w-xl mx-auto">
-            Pick only the tiers you need. From bare-metal crypto to full
-            autonomous payment — scale from 40KB to 58KB.
-          </p>
+          <FadeIn>
+            <h2 className="text-3xl font-bold text-center mb-4">
+              4-Tier Modular Architecture
+            </h2>
+            <p className="text-center text-white/40 mb-16 max-w-xl mx-auto">
+              Pick only the tiers you need. From bare-metal crypto to full
+              autonomous payment — scale from 40KB to 58KB.
+            </p>
+          </FadeIn>
           <div className="grid md:grid-cols-4 gap-4">
-            {TIERS.map((t) => (
-              <div
-                key={t.tier}
-                className={`rounded-xl border p-6 ${t.color} transition hover:scale-[1.02]`}
-              >
-                <div className="text-xs text-white/40 mb-1 font-mono">
-                  {t.tier}
+            {TIERS.map((t, i) => (
+              <FadeIn key={t.tier} delay={i * 0.1}>
+                <div className={`rounded-xl border p-6 ${t.color} transition hover:scale-[1.02] h-full`}>
+                  <div className="text-xs text-white/40 mb-1 font-mono">
+                    {t.tier}
+                  </div>
+                  <div className="text-lg font-bold mb-1">{t.name}</div>
+                  <div className="text-xs text-white/30 mb-4 font-mono">
+                    {t.size}
+                  </div>
+                  <ul className="space-y-2">
+                    {t.items.map((item) => (
+                      <li
+                        key={item}
+                        className="flex items-start gap-2 text-sm text-white/50"
+                      >
+                        <CheckCircle2 className="w-3.5 h-3.5 mt-0.5 shrink-0 text-white/30" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <div className="text-lg font-bold mb-1">{t.name}</div>
-                <div className="text-xs text-white/30 mb-4 font-mono">
-                  {t.size}
-                </div>
-                <ul className="space-y-2">
-                  {t.items.map((item) => (
-                    <li
-                      key={item}
-                      className="flex items-start gap-2 text-sm text-white/50"
-                    >
-                      <CheckCircle2 className="w-3.5 h-3.5 mt-0.5 shrink-0 text-white/30" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              </FadeIn>
             ))}
           </div>
         </div>
@@ -342,21 +369,22 @@ export default function Home() {
       {/* Use Cases */}
       <section id="usecases" className="py-24 px-6">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-16">Use Cases</h2>
+          <FadeIn>
+            <h2 className="text-3xl font-bold text-center mb-16">Use Cases</h2>
+          </FadeIn>
           <div className="grid md:grid-cols-2 gap-6">
-            {USE_CASES.map((uc) => (
-              <div
-                key={uc.title}
-                className="rounded-xl border border-white/8 p-6 flex gap-5 hover:border-white/15 transition"
-              >
-                <uc.icon className="w-8 h-8 text-purple-400 shrink-0 mt-1" />
-                <div>
-                  <h3 className="font-semibold text-lg mb-2">{uc.title}</h3>
-                  <p className="text-sm text-white/40 leading-relaxed">
-                    {uc.desc}
-                  </p>
+            {USE_CASES.map((uc, i) => (
+              <FadeIn key={uc.title} delay={i * 0.1}>
+                <div className="rounded-xl border border-white/8 p-6 flex gap-5 hover:border-white/15 transition h-full">
+                  <uc.icon className="w-8 h-8 text-purple-400 shrink-0 mt-1" />
+                  <div>
+                    <h3 className="font-semibold text-lg mb-2">{uc.title}</h3>
+                    <p className="text-sm text-white/40 leading-relaxed">
+                      {uc.desc}
+                    </p>
+                  </div>
                 </div>
-              </div>
+              </FadeIn>
             ))}
           </div>
         </div>
@@ -384,7 +412,7 @@ export default function Home() {
             </div>
             <div className="rounded-xl border border-white/8 p-6 text-center">
               <Layers className="w-8 h-8 text-purple-400 mx-auto mb-3" />
-              <h3 className="font-semibold mb-2">BoAT Machine Wallet SDK</h3>
+              <h3 className="font-semibold mb-2">BoAT Machine Wallet Runtime</h3>
               <p className="text-xs text-white/40">
                 Lightweight runtime for identity, attestation, and payment
               </p>
@@ -440,6 +468,20 @@ export default function Home() {
             </div>
           </div>
         </div>
+      </section>
+
+      {/* Partners */}
+      <section id="partners" className="py-24 px-6 border-t border-white/5 overflow-hidden">
+        <FadeIn className="max-w-5xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-4">
+            Trusted By Industry Leaders
+          </h2>
+          <p className="text-center text-white/40 mb-12 max-w-xl mx-auto">
+            BoAT is integrated with leading telecom, semiconductor, and
+            technology companies worldwide.
+          </p>
+        </FadeIn>
+        <Marquee partners={PARTNERS} />
       </section>
 
       {/* Developer CTA */}
